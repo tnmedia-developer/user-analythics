@@ -21,3 +21,13 @@ function user_analythics_has_access()
 
     return in_array($user->ID, $allowed_authors);
 }
+
+
+function settings_has_access()
+{
+    $user = wp_get_current_user();
+    if (in_array('administrator', $user->roles)) {
+        return true;
+    }
+    return false;
+}

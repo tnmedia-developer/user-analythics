@@ -5,10 +5,14 @@ if (!defined('ABSPATH')) {
 
 function user_analythics_add_menu()
 {
+    if (!user_analythics_has_access()) {
+        return;
+    }
+
     add_menu_page(
         'User Analythics',
         'User Analythics',
-        'manage_options',
+        'read',
         'user-analythics',
         'user_analythics_dashboard',
         'dashicons-chart-pie',
@@ -19,7 +23,7 @@ function user_analythics_add_menu()
         'user-analythics',
         'Detail User',
         'Detail',
-        'manage_options',
+        'read',
         'user-analythics-detail',
         'user_analythics_detail_page'
     );
